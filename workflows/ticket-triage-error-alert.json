@@ -1,0 +1,67 @@
+{
+  "name": "Ticket Triage Error Alert",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0e9682cc-f1ba-4652-81a3-4560fd1435b3",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "sendTo": "okjjjk92@gmail.com",
+        "subject": "=Workflow failed: {{ $json.workflow.name }}",
+        "emailType": "text",
+        "message": "={{ $json.execution.error.message }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "3cdaa630-b299-472c-a528-7c702be25239",
+      "name": "Send a message",
+      "webhookId": "d362b75c-3dea-443d-b1d3-02d4213c878c",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "aMAYtG7Jyxbl3kYY",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "588628c0-0d2e-4dd4-a0ca-bec4bc046b01",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3d7ddd6259511cb8b1a09df6983c661d00f50e096914ec0c4545bd0de57f2e8d"
+  },
+  "nodeGroups": [],
+  "id": "G93WGSSkA36N7bZB",
+  "tags": []
+}
